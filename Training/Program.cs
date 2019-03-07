@@ -1,21 +1,40 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Training
 {
-    class Program
+   public class Program
     {
-        static void Main(string[] args)
+       public static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
+
+            Licz licz = new Licz(50);
+            Licz licz2 = new Licz();
+            Sumator sum = new Sumator();
+         
+
+            Console.WriteLine(sum.NajmniejszyNajwiekszy());
+
+            Console.WriteLine(sum.IleElementow() + " elemtow jest w tablicy");
+
+            Console.WriteLine("Suma liczb podzielnych przez 3: " + sum.SumaPodzielPrzez3());
+
+            Console.WriteLine("Suma liczb z tablicy: " + sum.Suma());
+
+            Console.WriteLine("Suma liczb parametr z konstruktora: " + licz.dodaj(4));
+
+            Console.WriteLine("Metoda odejmnij: " + licz2.odejmnij(10));
+
+            Console.WriteLine();
             Console.ReadKey();
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+
         }
     }
 }
