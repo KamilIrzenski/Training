@@ -9,17 +9,30 @@ using System.Threading.Tasks;
 
 namespace Training
 {
-   public class Program
+    public class Program
     {
-       public static void Main(string[] args)
+        public static void Main(string[] args)
         {
 
             Licz licz = new Licz(50);
             Licz licz2 = new Licz();
             Sumator sum = new Sumator();
-         
+            Statyczna sta = new Statyczna(5);
+            Data data = new Data(15, 2, 2019);
 
-            Console.WriteLine(sum.NajmniejszyNajwiekszy());
+            
+            Console.WriteLine($"Wyswietl date: {data.dzien}.{data.miesiac}.{data.rok}r");
+            Console.WriteLine("dzien minus jeden " + data.OdejmnijDzien());
+            Console.WriteLine("dzien plus jeden " + data.DodajDzien());
+            Console.WriteLine("----------------------");
+
+            
+            sum.WypiszElementy();
+
+            Console.WriteLine("---------------");
+
+            sum.NajmniejszyNajwiekszy(3, 6);
+            Console.WriteLine("------------------------");
 
             Console.WriteLine(sum.IleElementow() + " elemtow jest w tablicy");
 
