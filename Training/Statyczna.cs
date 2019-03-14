@@ -15,6 +15,7 @@ namespace Training
         public Statyczna(int parametr)
         {
             i = parametr;
+            Zwieksz();
         }
 
        public static int Zwieksz()

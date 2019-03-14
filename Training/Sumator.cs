@@ -54,13 +54,15 @@ namespace Training
 
         public void WypiszElementy()
         {
-          
+
             foreach (var elementyTablicy in tablica)
             {
 
                 Console.WriteLine(elementyTablicy);
 
             }
+
+
         }
 
         public void NajmniejszyNajwiekszy(int lowIndex,int highIndex )
