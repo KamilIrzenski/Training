@@ -27,6 +27,76 @@ namespace Training
         public void DodajDzien()
         {
             dzien++;
+
+            if (miesiac == 1 && dzien > 31)
+            {
+                DodajMiesiac();
+                dzien = 1;
+            }
+            else if (miesiac == 2 && dzien >28)
+            {
+                DodajMiesiac();
+                dzien = 1;
+            }
+            else if (miesiac == 3 && dzien > 31)
+            {
+                DodajMiesiac();
+                dzien = 1;
+            }
+            else if (miesiac == 4 && dzien > 30)
+            {
+                DodajMiesiac();
+                dzien = 1;
+            }
+            else if (miesiac == 5 && dzien > 31)
+            {
+                DodajMiesiac();
+                dzien = 1;
+            }
+
+            else if (miesiac == 6 && dzien > 30)
+            {
+                DodajMiesiac();
+                dzien = 1;
+            }
+
+            else if (miesiac == 7 && dzien > 31)
+            {
+                DodajMiesiac();
+                dzien = 1;
+            }
+
+            else if (miesiac == 8 && dzien > 31)
+            {
+                DodajMiesiac();
+                dzien = 1;
+            }
+
+            else if (miesiac == 9 && dzien > 30)
+            {
+                DodajMiesiac();
+                dzien = 1;
+            }
+
+            else if (miesiac == 10 && dzien > 31)
+            {
+                DodajMiesiac();
+                dzien = 1;
+            }
+            else if (miesiac == 11 && dzien > 30)
+            {
+                DodajMiesiac();
+                dzien = 1;
+            }
+
+            else if (miesiac == 12 && dzien > 31)
+            {
+                DodajRok();
+                dzien = 1;
+                miesiac = 1;
+            }
+
+            
         }
 
         public void OdejmnijDzien()
@@ -35,7 +105,12 @@ namespace Training
             if (dzien < 1)
             {
                 OdejmnijMiesiac();
-
+                if (miesiac == 1 && dzien < 1 )
+                {
+                    OdejmnijRok();
+                    dzien = 31;
+                    miesiac = 12;
+                }
                 if (miesiac == 12 || miesiac == 10 || miesiac == 8 || miesiac == 7 || miesiac == 5 || miesiac == 3 || miesiac == 1)
                 {
                     dzien = 31;
@@ -72,12 +147,51 @@ namespace Training
         public void DodajMiesiac()
         {
             miesiac++;
+            if (miesiac > 12)
+            {
+                DodajRok();
+                // dzien = 1;
+                miesiac = 1;
+                if (miesiac == 12 || miesiac == 10 || miesiac == 8 || miesiac == 7 || miesiac == 5 || miesiac == 3 || miesiac == 1)
+                {
+                    dzien = 31;
+                }
+                else if (miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4)
+                {
+                    dzien = 30;
+                }
+                else if (miesiac == 2)
+                {
+                    dzien = 28;
+                }
+            }
+
 
         }
 
         public void OdejmnijMiesiac()
         {
             miesiac--;
+            if (miesiac < 1)
+            {
+                OdejmnijRok();
+                //  dzien = 1;
+                miesiac = 12;
+                if (miesiac == 12 || miesiac == 10 || miesiac == 8 || miesiac == 7 || miesiac == 5 || miesiac == 3 || miesiac == 1)
+                {
+                    dzien = 31;
+                }
+                else if (miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4)
+                {
+                    dzien = 30;
+                }
+                else if (miesiac == 2)
+                {
+                    dzien = 28;
+                }
+
+            }
+
         }
 
         public string ToStringSlownie()
@@ -139,6 +253,17 @@ namespace Training
 
             return string.Format("{0} {1} {2} ", dzien, miesiacSlownie, rok);
 
+        }
+
+        public void DodajRok()
+        {
+            rok++;
+
+        }
+
+        public void OdejmnijRok()
+        {
+            rok--;
         }
 
 

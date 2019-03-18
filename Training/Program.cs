@@ -15,16 +15,24 @@ namespace Training
         {
 
 
-            Data data = new Data(1, 12, 2019);
+            Data data = new Data(29, 12, 2019);
+            
+
             Console.WriteLine(data.ToStringDDMMRR());
             data.DodajDzien();
             Console.WriteLine(data.ToStringDDMMRR());
-            data.OdejmnijDzien();
+            data.DodajRok();
+            Console.WriteLine(data.ToStringDDMMRR());
+            data.DodajDzien();
+            Console.WriteLine(data.ToStringDDMMRR());
+            data.DodajDzien();
+            Console.WriteLine(data.ToStringDDMMRR());
+            data.DodajRok();
             Console.WriteLine(data.ToStringDDMMRR());
             data.OdejmnijDzien();
             Console.WriteLine(data.ToStringDDMMRR());
-            data.OdejmnijDzien();
-            Console.WriteLine(data.ToStringDDMMRR());
+
+
 
             Console.WriteLine();
             Console.WriteLine();
