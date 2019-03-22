@@ -13,6 +13,12 @@ namespace Training
         private int miesiac = 0;
         private int rok = 0;
 
+        public Data()
+        {
+            dzien = 1;
+            miesiac = 1;
+            rok = 1900;
+        }
 
 
         public Data(int dzienParametr, int miesiacParametr, int rokParametr)

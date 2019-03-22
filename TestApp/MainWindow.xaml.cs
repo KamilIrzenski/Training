@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Training;
 
 namespace TestApp
 {
@@ -20,9 +21,16 @@ namespace TestApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        
+        Data data = new Data();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+            textBoxData.Text = data.ToStringDDMMRR();
         }
     }
 }
