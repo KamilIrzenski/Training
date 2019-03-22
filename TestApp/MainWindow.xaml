@@ -15,12 +15,12 @@
             <ColumnDefinition Width="367*"/>
         </Grid.ColumnDefinitions>
         <TextBox x:Name="textBoxData" HorizontalAlignment="Left" Height="22" Margin="41.2,147,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="236" Grid.Column="1" Grid.ColumnSpan="2" AutomationProperties.Name="textBoxData"/>
-        <Button Name="btnRokPlus" Content="Rok +" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="42.8,174,0,0" Grid.Column="2" AutomationProperties.Name="btnRokPlus" RenderTransformOrigin="0.171,0.969"/>
-        <Button x:Name="btnDzienPlus" Content="Dzien +" HorizontalAlignment="Left" Margin="41.2,174,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" AutomationProperties.Name="btnDzienPlus"/>
-        <Button Name="btnDzienMinus" Content="Dzien -" HorizontalAlignment="Left" Margin="41.2,198,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" AutomationProperties.Name="btnDzienMinus"/>
-        <Button x:Name="btnMiesiacPlus" Content="Miesiac +" Grid.Column="1" HorizontalAlignment="Left" Margin="121.2,174,0,0" VerticalAlignment="Top" Width="75" AutomationProperties.Name="btnMiesiacPlus" Grid.ColumnSpan="2"/>
-        <Button Name="btnMiesiacMinus" Content="Miesiac -" Grid.Column="1" HorizontalAlignment="Left" Margin="121.2,198,0,0" VerticalAlignment="Top" Width="75" AutomationProperties.Name="btnMiesiacMinus" Grid.ColumnSpan="2"/>
-        <Button Name="btnRokMinus" Content="Rok -" Grid.Column="2" HorizontalAlignment="Left" Margin="42.8,198,0,0" VerticalAlignment="Top" Width="75" AutomationProperties.Name="btnRokMinus"/>
+        <Button Name="btnRokPlus" Content="Rok +" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="42.8,174,0,0" Grid.Column="2" AutomationProperties.Name="btnRokPlus" RenderTransformOrigin="0.171,0.969" Click="BtnRokPlus_Click"/>
+        <Button x:Name="btnDzienPlus" Content="Dzien +" HorizontalAlignment="Left" Margin="41.2,174,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" AutomationProperties.Name="btnDzienPlus" Click="BtnDzienPlus_Click"/>
+        <Button Name="btnDzienMinus" Content="Dzien -" HorizontalAlignment="Left" Margin="41.2,198,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" AutomationProperties.Name="btnDzienMinus" Click="BtnDzienMinus_Click"/>
+        <Button x:Name="btnMiesiacPlus" Content="Miesiac +" Grid.Column="1" HorizontalAlignment="Left" Margin="121.2,174,0,0" VerticalAlignment="Top" Width="75" AutomationProperties.Name="btnMiesiacPlus" Grid.ColumnSpan="2" Click="BtnMiesiacPlus_Click"/>
+        <Button Name="btnMiesiacMinus" Content="Miesiac -" Grid.Column="1" HorizontalAlignment="Left" Margin="121.2,198,0,0" VerticalAlignment="Top" Width="75" AutomationProperties.Name="btnMiesiacMinus" Grid.ColumnSpan="2" Click="BtnMiesiacMinus_Click"/>
+        <Button Name="btnRokMinus" Content="Rok -" Grid.Column="2" HorizontalAlignment="Left" Margin="42.8,198,0,0" VerticalAlignment="Top" Width="75" AutomationProperties.Name="btnRokMinus" Click="BtnRokMinus_Click"/>
 
     </Grid>
 </Window>

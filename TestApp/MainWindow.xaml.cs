@@ -32,5 +32,42 @@ namespace TestApp
         {
             textBoxData.Text = data.ToStringDDMMRR();
         }
+
+        private void BtnDzienPlus_Click(object sender, RoutedEventArgs e)
+        {
+            data.DodajDzien();
+            textBoxData.Text = data.ToStringDDMMRR();
+
+        }
+
+        private void BtnDzienMinus_Click(object sender, RoutedEventArgs e)
+        {
+            data.OdejmnijDzien();
+            textBoxData.Text = data.ToStringDDMMRR();
+        }
+
+        private void BtnMiesiacPlus_Click(object sender, RoutedEventArgs e)
+        {
+            data.DodajMiesiac();
+            textBoxData.Text = data.ToStringDDMMRR();
+        }
+
+        private void BtnMiesiacMinus_Click(object sender, RoutedEventArgs e)
+        {
+            data.OdejmnijMiesiac();
+            textBoxData.Text = data.ToStringDDMMRR();
+        }
+
+        private void BtnRokPlus_Click(object sender, RoutedEventArgs e)
+        {
+            data.DodajRok();
+            textBoxData.Text = data.ToStringDDMMRR();
+        }
+
+        private void BtnRokMinus_Click(object sender, RoutedEventArgs e)
+        {
+            data.OdejmnijRok();
+            textBoxData.Text = data.ToStringDDMMRR();
+        }
     }
 }
