@@ -15,9 +15,9 @@ namespace Training
 
         public Data()
         {
-            dzien = 1;
-            miesiac = 1;
-            rok = 1900;
+            dzien = 31;
+            miesiac = 12;
+            rok = 1899;
         }
 
 
@@ -147,7 +147,7 @@ namespace Training
 
         public string ToStringRRMMDD()
         {
-            return string.Format("{0}-{1}-{2}", rok, miesiac, dzien);
+            return string.Format("{0}{1}{2}", rok, miesiac, dzien);
         }
 
         public void DodajMiesiac()
