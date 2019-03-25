@@ -31,52 +31,52 @@ namespace TestApp
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-            textBoxData.Text = data.ToStringDDMMRR();
+         //   textBoxData.Text = data.ToStringDDMMRR();
         }
 
         private void BtnDzienPlus_Click(object sender, RoutedEventArgs e)
         {
             data.DodajDzien();
-            textBoxData.Text = data.ToStringDDMMRR();
+           // textBoxData.Text = data.ToStringDDMMRR();
 
         }
 
         private void BtnDzienMinus_Click(object sender, RoutedEventArgs e)
         {
             data.OdejmnijDzien();
-            textBoxData.Text = data.ToStringDDMMRR();
+            //textBoxData.Text = data.ToStringDDMMRR();
         }
 
         private void BtnMiesiacPlus_Click(object sender, RoutedEventArgs e)
         {
             data.DodajMiesiac();
-            textBoxData.Text = data.ToStringDDMMRR();
+            //textBoxData.Text = data.ToStringDDMMRR();
         }
 
         private void BtnMiesiacMinus_Click(object sender, RoutedEventArgs e)
         {
             data.OdejmnijMiesiac();
-            textBoxData.Text = data.ToStringDDMMRR();
+            //textBoxData.Text = data.ToStringDDMMRR();
         }
 
         private void BtnRokPlus_Click(object sender, RoutedEventArgs e)
         {
             data.DodajRok();
-            textBoxData.Text = data.ToStringDDMMRR();
+           // textBoxData.Text = data.ToStringDDMMRR();
         }
 
         private void BtnRokMinus_Click(object sender, RoutedEventArgs e)
         {
             data.OdejmnijRok();
-            textBoxData.Text = data.ToStringDDMMRR();
+           // textBoxData.Text = data.ToStringDDMMRR();
         }
 
 
         private void BtnWyswietlNaTextBox_Click(object sender, RoutedEventArgs e)
         {
-            data.UstawDate(Convert.ToInt32(dzienTextBox.Text),
-                miesiacParametr: Convert.ToInt32(miesiacTextBox.Text), rokParametr: Convert.ToInt32(rokTextBox.Text));
-            textBoxData.Text = data.ToStringDDMMRR();
+            //data.UstawDate(Convert.ToInt32(dzienTextBox.Text),
+            //    miesiacParametr: Convert.ToInt32(miesiacTextBox.Text), rokParametr: Convert.ToInt32(rokTextBox.Text));
+            //textBoxData.Text = data.ToStringDDMMRR();
         }
     }
 }

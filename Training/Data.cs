@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,9 +13,11 @@ namespace Training
         private int dzien = 0;
         private int miesiac = 0;
         private int rok = 0;
+        private string format = String.Empty;
 
         public Data()
         {
+            format = "YYYYMMDD";
             dzien = 31;
             miesiac = 12;
             rok = 1899;
@@ -24,7 +27,11 @@ namespace Training
             dzien = dzienParametr;
             miesiac = miesiacParametr;
             rok = rokParametr;
+        }
 
+        public Data(int dzienParametr, int miesiacParametr, int rokParametr, string formatDaty) : this(dzienParametr, miesiacParametr, rokParametr)
+        {
+            format = formatDaty;
         }
         public void DodajDzien()
         {
@@ -81,13 +88,30 @@ namespace Training
             return string.Format("{0}-{1}-{2}", rok, miesiac, dzien);
         }
 
-        public string ToStringDDMMRR()
+        private string ToStringMMDDRRRR()
         {
-            return string.Format("{0}-{1}-{2}", dzien, miesiac, rok);
+            return string.Format("{0:00}{1:00}{2}", miesiac, dzien, rok);
         }
-        public string ToStringRRMMDD()
+
+        private string ToStringDDMMRR()
         {
-            return string.Format("{0}{1}{2}", rok, miesiac, dzien);
+            return string.Format("{0:00}{1:00}{2}", dzien, miesiac, rok);
+        }
+        private string ToStringRRMMDD()
+        {
+            string miesiacFormat = string.Empty;
+            string dzienFormat = string.Empty;
+            if (miesiac <= 9)
+            {
+                miesiacFormat = "0";
+            }
+
+            if (dzien <= 9)
+            {
+                dzienFormat = "0";
+            }
+
+            return string.Format("{0}{1}{2}", rok, miesiacFormat + miesiac, dzienFormat + dzien);
         }
         public void DodajMiesiac()
         {
@@ -97,12 +121,10 @@ namespace Training
                 DodajRok();
                 miesiac = 1;
             }
-
-            else if (miesiac == 11 && dzien == 31 || miesiac == 9 && dzien == 31 || miesiac == 6 && dzien == 31 || miesiac == 4 && dzien == 31)
+            else if ((miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4) && dzien == 31)
             {
                 dzien = 30;
             }
-
             else if (miesiac == 2 && rok % 4 == 0)
             {
                 dzien = 29;
@@ -127,7 +149,7 @@ namespace Training
             {
                 dzien = 30;
             }
-                        else if (miesiac == 2 && rok % 4 == 0)
+            else if (miesiac == 2 && rok % 4 == 0)
             {
                 dzien = 29;
             }
@@ -152,7 +174,6 @@ namespace Training
             {
                 miesiacSlownie = "Luty";
             }
-
             else if (miesiac == 3)
             {
                 miesiacSlownie = "Marzec";
@@ -195,7 +216,6 @@ namespace Training
             }
 
             return string.Format("{0} {1} {2} ", dzien, miesiacSlownie, rok);
-
         }
 
         public void DodajRok()
@@ -217,5 +237,19 @@ namespace Training
 
         }
 
-    }
+        public override string ToString()
+        {
+            if (format == "DDMMYYYY")
+            {
+                return ToStringDDMMRR();
+            }
+
+            if (format == "MMDDYYYY")
+            {
+                return ToStringMMDDRRRR();
+            }
+            string data = ToStringRRMMDD();
+            return data;
+        }
+    }//TODO: validacje na dzien i miesiac 
 }

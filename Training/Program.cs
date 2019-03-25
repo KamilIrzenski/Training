@@ -14,42 +14,15 @@ namespace Training
     {
         public static void Main(string[] args)
         {
+            int jakastamliczba = 7;
 
-
-           //// Liczba liczba =  new Liczba( 5);
-
-           // liczba.tablicaLiczbDziesietnych = new[] {5.5, 2, 13,};
-
-
-           // liczba.WypiszlTablice();
-
-           // Console.WriteLine("Silnia: " + liczba.Silnia(5));
-
-
-
-            Data data = new Data(29, 12, 2019);
-            
-
-            Console.WriteLine(data.ToStringDDMMRR());
-            data.DodajDzien();
-            Console.WriteLine(data.ToStringDDMMRR());
-            data.DodajRok();
-            Console.WriteLine(data.ToStringDDMMRR());
-            data.DodajDzien();
-            Console.WriteLine(data.ToStringDDMMRR());
-            data.DodajDzien();
-            Console.WriteLine(data.ToStringDDMMRR());
-            data.DodajRok();
-            Console.WriteLine(data.ToStringDDMMRR());
-            data.OdejmnijDzien();
-            Console.WriteLine(data.ToStringDDMMRR());
-
-
+            Data data = new Data(1, 10, 2019);
+            Console.WriteLine(data);
+            Console.WriteLine(jakastamliczba);
 
             Console.WriteLine();
             Console.WriteLine();
             Console.ReadKey();
-
 
         }
     }
