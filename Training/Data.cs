@@ -98,7 +98,7 @@ namespace Training
                 miesiac = 1;
             }
 
-            else if (miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4)
+            else if (miesiac == 11 && dzien == 31 || miesiac == 9 && dzien == 31 || miesiac == 6 && dzien == 31 || miesiac == 4 && dzien == 31)
             {
                 dzien = 30;
             }
@@ -127,8 +127,7 @@ namespace Training
             {
                 dzien = 30;
             }
-
-            else if (miesiac == 2 && rok % 4 == 0)
+                        else if (miesiac == 2 && rok % 4 == 0)
             {
                 dzien = 29;
             }
