@@ -21,6 +21,13 @@
         <Button x:Name="btnMiesiacPlus" Content="Miesiac +" Grid.Column="1" HorizontalAlignment="Left" Margin="121.2,174,0,0" VerticalAlignment="Top" Width="75" AutomationProperties.Name="btnMiesiacPlus" Grid.ColumnSpan="2" Click="BtnMiesiacPlus_Click"/>
         <Button Name="btnMiesiacMinus" Content="Miesiac -" Grid.Column="1" HorizontalAlignment="Left" Margin="121.2,198,0,0" VerticalAlignment="Top" Width="75" AutomationProperties.Name="btnMiesiacMinus" Grid.ColumnSpan="2" Click="BtnMiesiacMinus_Click"/>
         <Button Name="btnRokMinus" Content="Rok -" Grid.Column="2" HorizontalAlignment="Left" Margin="42.8,198,0,0" VerticalAlignment="Top" Width="75" AutomationProperties.Name="btnRokMinus" Click="BtnRokMinus_Click"/>
+        <TextBox Name="dzienTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="47.2,46,0,0"/>
+        <TextBox Name="miesiacTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="47.2,74,0,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.94,0.53"/>
+        <TextBox Name="rokTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="48.2,102,0,0"/>
+        <Button x:Name="btnWyswietlNaTextBox" Content="Wyswietl" HorizontalAlignment="Left" VerticalAlignment="Top" Width="104" Grid.Column="2" Margin="14.8,105,0,0" Click="BtnWyswietlNaTextBox_Click"/>
+        <Label x:Name="dzienLabel" Grid.ColumnSpan="2" Content="Dzien" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,46,0,0"/>
+        <Label x:Name="miesiacLabel" Content="Miesiac" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,77,0,0" Grid.ColumnSpan="2"/>
+        <Label x:Name="rokLbael" Grid.ColumnSpan="2" Content="Rok" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,102,0,0"/>
 
     </Grid>
 </Window>

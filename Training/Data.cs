@@ -19,8 +19,6 @@ namespace Training
             miesiac = 12;
             rok = 1899;
         }
-
-
         public Data(int dzienParametr, int miesiacParametr, int rokParametr)
         {
             dzien = dzienParametr;
@@ -28,68 +26,10 @@ namespace Training
             rok = rokParametr;
 
         }
-
-
         public void DodajDzien()
         {
             dzien++;
-
-            if (miesiac == 1 && dzien > 31)
-            {
-                DodajMiesiac();
-                dzien = 1;
-            }
-            else if (miesiac == 2 && dzien >28)
-            {
-                DodajMiesiac();
-                dzien = 1;
-            }
-            else if (miesiac == 3 && dzien > 31)
-            {
-                DodajMiesiac();
-                dzien = 1;
-            }
-            else if (miesiac == 4 && dzien > 30)
-            {
-                DodajMiesiac();
-                dzien = 1;
-            }
-            else if (miesiac == 5 && dzien > 31)
-            {
-                DodajMiesiac();
-                dzien = 1;
-            }
-
-            else if (miesiac == 6 && dzien > 30)
-            {
-                DodajMiesiac();
-                dzien = 1;
-            }
-
-            else if (miesiac == 7 && dzien > 31)
-            {
-                DodajMiesiac();
-                dzien = 1;
-            }
-
-            else if (miesiac == 8 && dzien > 31)
-            {
-                DodajMiesiac();
-                dzien = 1;
-            }
-
-            else if (miesiac == 9 && dzien > 30)
-            {
-                DodajMiesiac();
-                dzien = 1;
-            }
-
-            else if (miesiac == 10 && dzien > 31)
-            {
-                DodajMiesiac();
-                dzien = 1;
-            }
-            else if (miesiac == 11 && dzien > 30)
+            if (miesiac == 1 && dzien > 31 || miesiac == 2 && dzien > 28 || miesiac == 3 && dzien > 31 || miesiac == 4 && dzien > 30 || miesiac == 5 && dzien > 31 || miesiac == 6 && dzien > 30 || miesiac == 7 && dzien > 31 || miesiac == 8 && dzien > 31 || miesiac == 9 && dzien > 30 || miesiac == 10 && dzien > 31 || miesiac == 11 && dzien > 30)
             {
                 DodajMiesiac();
                 dzien = 1;
@@ -101,17 +41,14 @@ namespace Training
                 dzien = 1;
                 miesiac = 1;
             }
-
-            
         }
-
         public void OdejmnijDzien()
         {
             dzien--;
             if (dzien < 1)
             {
                 OdejmnijMiesiac();
-                if (miesiac == 1 && dzien < 1 )
+                if (miesiac == 1 && dzien < 1)
                 {
                     OdejmnijRok();
                     dzien = 31;
@@ -124,6 +61,10 @@ namespace Training
                 else if (miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4)
                 {
                     dzien = 30;
+                }
+                else if (miesiac == 2 && rok % 4 == 0)
+                {
+                    dzien = 29;
                 }
                 else if (miesiac == 2)
                 {
@@ -144,58 +85,56 @@ namespace Training
         {
             return string.Format("{0}-{1}-{2}", dzien, miesiac, rok);
         }
-
         public string ToStringRRMMDD()
         {
             return string.Format("{0}{1}{2}", rok, miesiac, dzien);
         }
-
         public void DodajMiesiac()
         {
             miesiac++;
             if (miesiac > 12)
             {
                 DodajRok();
-                // dzien = 1;
                 miesiac = 1;
-                if (miesiac == 12 || miesiac == 10 || miesiac == 8 || miesiac == 7 || miesiac == 5 || miesiac == 3 || miesiac == 1)
-                {
-                    dzien = 31;
-                }
-                else if (miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4)
-                {
-                    dzien = 30;
-                }
-                else if (miesiac == 2)
-                {
-                    dzien = 28;
-                }
             }
 
+            else if (miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4)
+            {
+                dzien = 30;
+            }
 
+            else if (miesiac == 2 && rok % 4 == 0)
+            {
+                dzien = 29;
+            }
+            else if (miesiac == 2)
+            {
+                dzien = 28;
+            }
         }
 
         public void OdejmnijMiesiac()
         {
+
             miesiac--;
             if (miesiac < 1)
             {
                 OdejmnijRok();
-                //  dzien = 1;
                 miesiac = 12;
-                if (miesiac == 12 || miesiac == 10 || miesiac == 8 || miesiac == 7 || miesiac == 5 || miesiac == 3 || miesiac == 1)
-                {
-                    dzien = 31;
-                }
-                else if (miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4)
-                {
-                    dzien = 30;
-                }
-                else if (miesiac == 2)
-                {
-                    dzien = 28;
-                }
+            }
 
+            if (miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4)
+            {
+                dzien = 30;
+            }
+
+            else if (miesiac == 2 && rok % 4 == 0)
+            {
+                dzien = 29;
+            }
+            else if (miesiac == 2)
+            {
+                dzien = 28;
             }
 
         }
@@ -256,7 +195,6 @@ namespace Training
                 miesiacSlownie = "Grudzien";
             }
 
-
             return string.Format("{0} {1} {2} ", dzien, miesiacSlownie, rok);
 
         }
@@ -272,8 +210,13 @@ namespace Training
             rok--;
         }
 
+        public void UstawDate(int dzienParametr, int miesiacParametr, int rokParametr)
+        {
+            dzien = dzienParametr;
+            miesiac = miesiacParametr;
+            rok = rokParametr;
+
+        }
 
     }
-
-
 }

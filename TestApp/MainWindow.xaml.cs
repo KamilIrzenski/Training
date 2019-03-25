@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,8 +22,8 @@ namespace TestApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        
-        Data data = new Data();
+
+        Data data = new Data(29, 2, 2020);
         public MainWindow()
         {
             InitializeComponent();
@@ -67,6 +68,14 @@ namespace TestApp
         private void BtnRokMinus_Click(object sender, RoutedEventArgs e)
         {
             data.OdejmnijRok();
+            textBoxData.Text = data.ToStringDDMMRR();
+        }
+
+
+        private void BtnWyswietlNaTextBox_Click(object sender, RoutedEventArgs e)
+        {
+            data.UstawDate(Convert.ToInt32(dzienTextBox.Text),
+                miesiacParametr: Convert.ToInt32(miesiacTextBox.Text), rokParametr: Convert.ToInt32(rokTextBox.Text));
             textBoxData.Text = data.ToStringDDMMRR();
         }
     }
