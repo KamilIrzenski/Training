@@ -211,6 +211,123 @@ namespace Tests
             Data data = new Data(7, 12, 2020, "MMDDYYYY");
             Assert.AreEqual("12072020", data.ToString());
         }
+        [TestMethod]
+        public void powinienRzucicWyjatekJezeliWprowadzonaDataMaNiepoprawnaIloscDniWMiesiacu()
+        {
+            try
+            {
+                Data data = new Data(31, 4, 2019);
+            }
+            catch
+            {
+                return;
+            }
+
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void powinienRzucicWyjatekJezeliWprowadzonaDataMaNiepoprawnaIloscDniWMiesiacu_2()
+        {
+            try
+            {
+                Data data = new Data(32, 3, 2019);
+            }
+            catch
+            {
+                return;
+            }
+
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void powinienRzucicWyjatekJezeliWprowadzonaDataMaNiepoprawnaIloscDniWMiesiacu_3()
+        {
+            try
+            {
+                Data data = new Data(0, 3, 2019);
+            }
+            catch
+            {
+                return;
+            }
+
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void powinienRzucicWyjatekJezeliWprowadzonaDataMaNiepoprawnaIloscDniWMiesiacu_4()
+        {
+            try
+            {
+                Data data = new Data(29, 2, 2019);
+            }
+            catch
+            {
+                return;
+            }
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void powinienRzucicWyjatekJezeliWprowadzonaDataMaNiepoprawnaIloscDniWMiesiacu_5()
+        {
+            try
+            {
+                Data data = new Data(11, 13, 2019);
+            }
+            catch
+            {
+                return;
+            }
+
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void powinienRzucicWyjatekJezeliWprowadzonaDataMaNiepoprawnaIloscDniWMiesiacu_6()
+        {
+            try
+            {
+                Data data = new Data(11, -1, 2019);
+            }
+            catch
+            {
+                return;
+            }
+
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void powinienRzucicWyjatekJezeliWprowadzonaDataMaNiepoprawnaIloscDniWMiesiacu_7()
+        {
+            try
+            {
+                Data data = new Data();
+                data.UstawDate(11, -1, 2019);
+            }
+            catch
+            {
+                return;
+            }
+
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void powinienNieRzucicWyjatkuDlaLutegoWPrzestepnymRoku()
+        {
+            try
+            {
+                Data data = new Data(29, 2, 2020);
+            }
+            catch
+            {
+                Assert.Fail();
+            }
+        }
 
 
     }
