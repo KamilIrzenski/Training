@@ -14,6 +14,7 @@ namespace Training
         private int miesiac = 0;
         private int rok = 0;
         private string format = String.Empty;
+        private string komunikat = "Niepoprawna Data";
 
         public Data()
         {
@@ -29,33 +30,7 @@ namespace Training
             miesiac = miesiacParametr;
             rok = rokParametr;
 
-            if (dzienParametr < 1)
-            {
-                throw new Exception("niepoprawna data");
-            }
-
-            else if (miesiacParametr < 1 || miesiacParametr > 12)
-            {
-                throw new Exception("Niepoprawna data");
-            }
-
-            else if (dzienParametr > 31)
-            {
-                throw new Exception("Niepoprawna data");
-            }
-            else if ((miesiac == 2 && rok % 4 == 0) && dzienParametr > 29)
-            {
-                throw new Exception("Niepoprawna data");
-            }
-            else if ((miesiac == 2 && rok % 4 != 0) && dzienParametr > 28)
-            {
-                throw new Exception("Niepoprawna data");
-            }
-            else if ((miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4) && dzienParametr > 30)
-            {
-                throw new Exception("Niepoprawna data");
-            }
-
+            SprawdzPoprawnoscDaty();
         }
 
         public Data(int dzienParametr, int miesiacParametr, int rokParametr, string formatDaty) : this(dzienParametr, miesiacParametr, rokParametr)
@@ -264,32 +239,7 @@ namespace Training
             miesiac = miesiacParametr;
             rok = rokParametr;
 
-            if (dzienParametr < 1)
-            {
-                throw new Exception("niepoprawna data");
-            }
-
-            else if (miesiacParametr < 1 || miesiacParametr > 12)
-            {
-                throw new Exception("Niepoprawna data");
-            }
-
-            else if (dzienParametr > 31)
-            {
-                throw new Exception("Niepoprawna data");
-            }
-            else if ((miesiac == 2 && rok % 4 == 0) && dzienParametr > 29)
-            {
-                throw new Exception("Niepoprawna data");
-            }
-            else if ((miesiac == 2 && rok % 4 != 0) && dzienParametr > 28)
-            {
-                throw new Exception("Niepoprawna data");
-            }
-            else if ((miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4) && dzienParametr > 30)
-            {
-                throw new Exception("Niepoprawna data");
-            }
+            SprawdzPoprawnoscDaty();
 
         }
 
@@ -307,5 +257,36 @@ namespace Training
             string data = ToStringRRMMDD();
             return data;
         }
+
+        public void SprawdzPoprawnoscDaty()
+        {
+            if (dzien < 1)
+            {
+                throw new Exception(komunikat);
+            }
+
+            else if (miesiac < 1 || miesiac > 12)
+            {
+                throw new Exception(komunikat);
+            }
+
+            else if (dzien > 31)
+            {
+                throw new Exception(komunikat);
+            }
+            else if ((miesiac == 2 && rok % 4 == 0) && dzien > 29)
+            {
+                throw new Exception(komunikat);
+            }
+            else if ((miesiac == 2 && rok % 4 != 0) && dzien > 28)
+            {
+                throw new Exception(komunikat);
+            }
+            else if ((miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4) && dzien > 30)
+            {
+                throw new Exception(komunikat);
+            }
+        }
     }//TODO: validacje na dzien i miesiac 
+
 }
