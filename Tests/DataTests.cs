@@ -69,6 +69,7 @@ namespace Tests
         [TestMethod]
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20170613()
         {
+            
             Data data = new Data(13, 6, 2017, FormatDaty.YYYYMMDD);
             data.OdejmnijMiesiac();
             Assert.AreEqual("20170513", data.ToString());

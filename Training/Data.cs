@@ -8,17 +8,27 @@ using System.Threading.Tasks;
 
 namespace Training
 {
+    public enum FormatDaty
+    {
+        YYYYMMDD,
+        DDMMYYYY,
+        MMDDYYYY,
+    }
     public class Data
     {
+        private FormatDaty enumDaty = FormatDaty.DDMMYYYY;
+
         private int dzien = 0;
         private int miesiac = 0;
         private int rok = 0;
         private string format = String.Empty;
         private string komunikat = "Niepoprawna Data";
 
+
         public Data()
         {
-            format = "YYYYMMDD";
+
+            enumDaty = FormatDaty.YYYYMMDD;
             dzien = 31;
             miesiac = 12;
             rok = 1899;
@@ -33,9 +43,12 @@ namespace Training
             SprawdzPoprawnoscDaty();
         }
 
-        public Data(int dzienParametr, int miesiacParametr, int rokParametr, string formatDaty) : this(dzienParametr, miesiacParametr, rokParametr)
+        public Data(int dzienParametr, int miesiacParametr, int rokParametr, FormatDaty formatDaty) : this(dzienParametr, miesiacParametr, rokParametr)
         {
-            format = formatDaty;
+            // format = formatDaty;
+
+            enumDaty = formatDaty;
+
         }
         public void DodajDzien()
         {
@@ -245,15 +258,20 @@ namespace Training
 
         public override string ToString()
         {
-            if (format == "DDMMYYYY")
+
+            if (enumDaty == FormatDaty.DDMMYYYY)
             {
                 return ToStringDDMMRR();
             }
 
-            if (format == "MMDDYYYY")
+            if (enumDaty == FormatDaty.MMDDYYYY)
             {
                 return ToStringMMDDRRRR();
             }
+            //if (enumDaty == FormatDaty.YYYYMMDD)
+            //{
+            //    return ToStringRRMMDD();
+            //}
             string data = ToStringRRMMDD();
             return data;
         }
