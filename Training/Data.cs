@@ -53,7 +53,17 @@ namespace Training
         public void DodajDzien()
         {
             dzien++;
-            if (miesiac == 1 && dzien > 31 || miesiac == 2 && dzien > 28 || miesiac == 3 && dzien > 31 || miesiac == 4 && dzien > 30 || miesiac == 5 && dzien > 31 || miesiac == 6 && dzien > 30 || miesiac == 7 && dzien > 31 || miesiac == 8 && dzien > 31 || miesiac == 9 && dzien > 30 || miesiac == 10 && dzien > 31 || miesiac == 11 && dzien > 30)
+            if (miesiac == 1 && dzien > 31 
+             || miesiac == 2 && dzien > 28 
+             || miesiac == 3 && dzien > 31 
+             || miesiac == 4 && dzien > 30 
+             || miesiac == 5 && dzien > 31 
+             || miesiac == 6 && dzien > 30 
+             || miesiac == 7 && dzien > 31 
+             || miesiac == 8 && dzien > 31 
+             || miesiac == 9 && dzien > 30 
+             || miesiac == 10 && dzien > 31 
+             || miesiac == 11 && dzien > 30)
             {
                 DodajMiesiac();
                 dzien = 1;
