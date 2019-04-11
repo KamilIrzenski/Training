@@ -330,11 +330,5 @@ namespace Tests
                 Assert.Fail();
             }
         }
-
-        [TestMethod]
-        public void powinienZwrocicZeDatySaSobieRowne()
-        {
-
-        }
     }
 }

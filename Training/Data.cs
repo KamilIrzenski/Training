@@ -260,6 +260,24 @@ namespace Training
             return data;
         }
 
+        public override bool Equals(object obj)
+        {
+           Data data = obj as Data;
+            
+            if (obj == null)
+            {
+                return false;
+            }
+
+            if (obj == data)
+            {
+                return true;
+            }
+
+            return Equals(obj);
+
+        }
+
         public void ChechCorrectDate()
         {
             if (day < 1)
