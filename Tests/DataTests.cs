@@ -27,7 +27,7 @@ namespace Tests
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate19000101()
         {
             Data data = new Data(1, 1, 1900, FormatDaty.YYYYMMDD);
-            data.OdejmnijMiesiac();
+            data.SubtractMonth();
 
             Assert.AreEqual("18991201", data.ToString());
         }
@@ -36,7 +36,7 @@ namespace Tests
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20121215()
         {
             Data data = new Data(15, 12, 2012, FormatDaty.YYYYMMDD);
-            data.DodajMiesiac();
+            data.AddMonth();
 
             Assert.AreEqual("20130115", data.ToString());
         }
@@ -45,7 +45,7 @@ namespace Tests
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20151201()
         {
             Data data = new Data(1, 12, 2015, FormatDaty.YYYYMMDD);
-            data.DodajMiesiac();
+            data.AddMonth();
             Assert.AreEqual("20160101", data.ToString());
         }
 
@@ -53,7 +53,7 @@ namespace Tests
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20130122()
         {
             Data data = new Data(22, 1, 2013, FormatDaty.YYYYMMDD);
-            data.OdejmnijMiesiac();
+            data.SubtractMonth();
             Assert.AreEqual("20121222", data.ToString());
             
         }
@@ -62,7 +62,7 @@ namespace Tests
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20190522()
         {
             Data data = new Data(22, 5, 2019, FormatDaty.YYYYMMDD);
-            data.DodajMiesiac();
+            data.AddMonth();
             Assert.AreEqual("20190622", data.ToString());
         }
 
@@ -71,7 +71,7 @@ namespace Tests
         {
             
             Data data = new Data(13, 6, 2017, FormatDaty.YYYYMMDD);
-            data.OdejmnijMiesiac();
+            data.SubtractMonth();
             Assert.AreEqual("20170513", data.ToString());
 
         }
@@ -80,49 +80,49 @@ namespace Tests
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20140315()
         {
             Data data = new Data(15, 3, 2014, FormatDaty.YYYYMMDD);
-            data.DodajRok();
+            data.AddYear();
             Assert.AreEqual("20150315", data.ToString());
         }
         [TestMethod]
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20130315()
         {
             Data data = new Data(15, 3, 2013, FormatDaty.YYYYMMDD);
-            data.OdejmnijRok();
+            data.SubtractYear();
             Assert.AreEqual("20120315", data.ToString());
         }
         [TestMethod]
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20110101()
         {
             Data data = new Data(1, 1, 2011, FormatDaty.YYYYMMDD);
-            data.DodajRok();
+            data.AddYear();
             Assert.AreEqual("20120101", data.ToString());
         }
         [TestMethod]
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20081231()
         {
             Data data = new Data(31, 12, 2008, FormatDaty.YYYYMMDD);
-            data.DodajRok();
+            data.AddYear();
             Assert.AreEqual("20091231", data.ToString());
         }
         [TestMethod]
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20061231()
         {
             Data data = new Data(31, 12, 2006, FormatDaty.YYYYMMDD);
-            data.OdejmnijRok();
+            data.SubtractYear();
             Assert.AreEqual("20051231", data.ToString());
         }
         [TestMethod]
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20200301()
         {
             Data data = new Data(1, 3, 2020, FormatDaty.YYYYMMDD);
-            data.OdejmnijDzien();
+            data.SubtractDay();
             Assert.AreEqual("20200229", data.ToString());
         }
         [TestMethod]
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20190301()
         {
             Data data = new Data(1, 3, 2019, FormatDaty.YYYYMMDD);
-            data.OdejmnijDzien();
+            data.SubtractDay();
             Assert.AreEqual("20190228", data.ToString());
         }
 
@@ -130,7 +130,7 @@ namespace Tests
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20200130()
         {
             Data data = new Data(30, 1, 2020, FormatDaty.YYYYMMDD);
-            data.DodajMiesiac();
+            data.AddMonth();
             Assert.AreEqual("20200229", data.ToString());
         }
 
@@ -138,7 +138,7 @@ namespace Tests
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20190330()
         {
             Data data = new Data(30, 3, 2019, FormatDaty.YYYYMMDD);
-            data.OdejmnijMiesiac();
+            data.SubtractMonth();
             Assert.AreEqual("20190228", data.ToString());
         }
 
@@ -146,7 +146,7 @@ namespace Tests
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20190331()
         {
             Data data = new Data(31, 3, 2019, FormatDaty.YYYYMMDD);
-            data.DodajMiesiac();
+            data.AddMonth();
             Assert.AreEqual("20190430", data.ToString());
         }
 
@@ -154,7 +154,7 @@ namespace Tests
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20190531()
         {
             Data data = new Data(31, 5, 2019, FormatDaty.YYYYMMDD);
-            data.OdejmnijMiesiac();
+            data.SubtractMonth();
             Assert.AreEqual("20190430", data.ToString());
         }
 
@@ -162,7 +162,7 @@ namespace Tests
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20191130()
         {
             Data data = new Data(30, 11, 2019, FormatDaty.YYYYMMDD);
-            data.OdejmnijMiesiac();
+            data.SubtractMonth();
             Assert.AreEqual("20191030", data.ToString());
         }
 
@@ -308,7 +308,7 @@ namespace Tests
             try
             {
                 Data data = new Data();
-                data.UstawDate(11, -1, 2019);
+                data.SetDate(11, -1, 2019);
             }
             catch
             {
@@ -329,6 +329,12 @@ namespace Tests
             {
                 Assert.Fail();
             }
+        }
+
+        [TestMethod]
+        public void powinienZwrocicZeDatySaSobieRowne()
+        {
+
         }
     }
 }

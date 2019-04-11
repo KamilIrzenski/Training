@@ -14,307 +14,281 @@ namespace Training
         DDMMYYYY,
         MMDDYYYY,
     }
+
     public class Data
     {
-        private FormatDaty enumDaty = FormatDaty.DDMMYYYY;
-
-        private int dzien = 0;
-        private int miesiac = 0;
-        private int rok = 0;
+        private FormatDaty formatDate = FormatDaty.DDMMYYYY;
+        private int day = 0;
+        private int month = 0;
+        private int year = 0;
         private string format = String.Empty;
-        private string komunikat = "Niepoprawna Data";
-
+        private string statement = "Niepoprawna Data";
 
         public Data()
         {
-
-            enumDaty = FormatDaty.YYYYMMDD;
-            dzien = 31;
-            miesiac = 12;
-            rok = 1899;
-
-        }
-        public Data(int dzienParametr, int miesiacParametr, int rokParametr)
-        {
-            dzien = dzienParametr;
-            miesiac = miesiacParametr;
-            rok = rokParametr;
-
-            SprawdzPoprawnoscDaty();
+            formatDate = FormatDaty.YYYYMMDD;
+            day = 31;
+            month = 12;
+            year = 1899;
         }
 
-        public Data(int dzienParametr, int miesiacParametr, int rokParametr, FormatDaty formatDaty) : this(dzienParametr, miesiacParametr, rokParametr)
+        public Data(int dayParametr, int monthParametr, int yearParametr)
         {
-            // format = formatDaty;
-
-            enumDaty = formatDaty;
-
+            day = dayParametr;
+            month = monthParametr;
+            year = yearParametr;
+            ChechCorrectDate();
         }
-        public void DodajDzien()
+
+        public Data(int dayParametr, int monthParametr, int yearParametr, FormatDaty formatDate) : this(
+            dayParametr, monthParametr, yearParametr)
         {
-            dzien++;
-            if (miesiac == 1 && dzien > 31 
-             || miesiac == 2 && dzien > 28 
-             || miesiac == 3 && dzien > 31 
-             || miesiac == 4 && dzien > 30 
-             || miesiac == 5 && dzien > 31 
-             || miesiac == 6 && dzien > 30 
-             || miesiac == 7 && dzien > 31 
-             || miesiac == 8 && dzien > 31 
-             || miesiac == 9 && dzien > 30 
-             || miesiac == 10 && dzien > 31 
-             || miesiac == 11 && dzien > 30)
+            this.formatDate = formatDate;
+        }
+
+        public void AddDay()
+        {
+            day++;
+            if ((month == 10 || month == 8 || month == 7 || month == 5 || month == 3 ||
+                month == 1) && day == 31 || (month == 11 || month == 9 || month == 6 || month == 4) && day == 30 || (month == 2 && year % 4 == 0) && day == 29 || month == 2 && day == 28)
             {
-                DodajMiesiac();
-                dzien = 1;
+                AddMonth();
+                day = 1;
             }
 
-            else if (miesiac == 12 && dzien > 31)
+            else if (month == 12 && day > 31)
             {
-                DodajRok();
-                dzien = 1;
-                miesiac = 1;
+                AddYear();
+                day = 1;
+                month = 1;
             }
         }
-        public void OdejmnijDzien()
+
+        public void SubtractDay()
         {
-            dzien--;
-            if (dzien < 1)
+            day--;
+            if (day < 1)
             {
-                OdejmnijMiesiac();
-                if (miesiac == 1 && dzien < 1)
+                SubtractMonth();
+                if (month == 1 && day < 1)
                 {
-                    OdejmnijRok();
-                    dzien = 31;
-                    miesiac = 12;
+                    SubtractYear();
+                    day = 31;
+                    month = 12;
                 }
-                if (miesiac == 12 || miesiac == 10 || miesiac == 8 || miesiac == 7 || miesiac == 5 || miesiac == 3 || miesiac == 1)
+
+                if (month == 12 || month == 10 || month == 8 || month == 7 || month == 5 || month == 3 ||
+                    month == 1)
                 {
-                    dzien = 31;
+                    day = 31;
                 }
-                else if (miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4)
+                else if (month == 11 || month == 9 || month == 6 || month == 4)
                 {
-                    dzien = 30;
+                    day = 30;
                 }
-                else if (miesiac == 2 && rok % 4 == 0)
+                else if (month == 2 && year % 4 == 0)
                 {
-                    dzien = 29;
+                    day = 29;
                 }
-                else if (miesiac == 2)
+                else if (month == 2)
                 {
-                    dzien = 28;
+                    day = 28;
                 }
             }
-
         }
 
         public string DataString()
         {
-            //  return dzien.ToString() + "-" + miesiac.ToString() + "-" + rok.ToString();
-
-            return string.Format("{0}-{1}-{2}", rok, miesiac, dzien);
+            //  return day.ToString() + "-" + month.ToString() + "-" + year.ToString();
+            return string.Format("{0}-{1}-{2}", year, month, day);
         }
 
         private string ToStringMMDDRRRR()
         {
-            return string.Format("{0:00}{1:00}{2}", miesiac, dzien, rok);
+            return string.Format("{0:00}{1:00}{2}", month, day, year);
         }
 
         private string ToStringDDMMRR()
         {
-            return string.Format("{0:00}{1:00}{2}", dzien, miesiac, rok);
+            return string.Format("{0:00}{1:00}{2}", day, month, year);
         }
+
         private string ToStringRRMMDD()
         {
             string miesiacFormat = string.Empty;
             string dzienFormat = string.Empty;
-            if (miesiac <= 9)
+            if (month <= 9)
             {
                 miesiacFormat = "0";
             }
-
-            if (dzien <= 9)
+            if (day <= 9)
             {
                 dzienFormat = "0";
             }
 
-            return string.Format("{0}{1}{2}", rok, miesiacFormat + miesiac, dzienFormat + dzien);
+            return string.Format("{0}{1}{2}", year, miesiacFormat + month, dzienFormat + day);
         }
-        public void DodajMiesiac()
+
+        public void AddMonth()
         {
-            miesiac++;
-            if (miesiac > 12)
+            month++;
+            if (month > 12)
             {
-                DodajRok();
-                miesiac = 1;
+                AddYear();
+                month = 1;
             }
-            else if ((miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4) && dzien == 31)
+            else if ((month == 11 || month == 9 || month == 6 || month == 4) && day == 31)
             {
-                dzien = 30;
+                day = 30;
             }
-            else if (miesiac == 2 && rok % 4 == 0)
+            else if (month == 2 && year % 4 == 0)
             {
-                dzien = 29;
+                day = 29;
             }
-            else if (miesiac == 2)
+            else if (month == 2)
             {
-                dzien = 28;
+                day = 28;
             }
         }
 
-        public void OdejmnijMiesiac()
+        public void SubtractMonth()
         {
-
-            miesiac--;
-            if (miesiac < 1)
+            month--;
+            if (month < 1)
             {
-                OdejmnijRok();
-                miesiac = 12;
+                SubtractYear();
+                month = 12;
             }
 
-            if (miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4)
+            if (month == 11 || month == 9 || month == 6 || month == 4)
             {
-                dzien = 30;
+                day = 30;
             }
-            else if (miesiac == 2 && rok % 4 == 0)
+            else if (month == 2 && year % 4 == 0)
             {
-                dzien = 29;
+                day = 29;
             }
-            else if (miesiac == 2)
+            else if (month == 2)
             {
-                dzien = 28;
+                day = 28;
             }
-
         }
-
-        public string ToStringSlownie()
+        public string ToStringInWords()
         {
             string miesiacSlownie = string.Empty;
 
-
-            if (miesiac == 1)
+            if (month == 1)
             {
                 miesiacSlownie = "Styczen";
 
             }
-            else if (miesiac == 2)
+            else if (month == 2)
             {
                 miesiacSlownie = "Luty";
             }
-            else if (miesiac == 3)
+            else if (month == 3)
             {
                 miesiacSlownie = "Marzec";
             }
-            else if (miesiac == 4)
+            else if (month == 4)
             {
                 miesiacSlownie = "Kwiecien";
             }
-            else if (miesiac == 5)
+            else if (month == 5)
             {
                 miesiacSlownie = "Maj";
             }
-            else if (miesiac == 6)
+            else if (month == 6)
             {
                 miesiacSlownie = "Czerwiec";
             }
-            else if (miesiac == 7)
+            else if (month == 7)
             {
                 miesiacSlownie = "Lipiec";
             }
-            else if (miesiac == 8)
+            else if (month == 8)
             {
                 miesiacSlownie = "Sierpien";
             }
-            else if (miesiac == 9)
+            else if (month == 9)
             {
                 miesiacSlownie = "Wrzesien";
             }
-            else if (miesiac == 10)
+            else if (month == 10)
             {
                 miesiacSlownie = "Pazdziernik";
             }
-            else if (miesiac == 11)
+            else if (month == 11)
             {
                 miesiacSlownie = "Listopad";
             }
-            else if (miesiac == 12)
+            else if (month == 12)
             {
                 miesiacSlownie = "Grudzien";
             }
-
-            return string.Format("{0} {1} {2} ", dzien, miesiacSlownie, rok);
+            return string.Format("{0} {1} {2} ", day, miesiacSlownie, year);
         }
-
-        public void DodajRok()
+        public void AddYear()
         {
-            rok++;
-
+            year++;
         }
-
-        public void OdejmnijRok()
+        public void SubtractYear()
         {
-            rok--;
+            year--;
         }
-
-        public void UstawDate(int dzienParametr, int miesiacParametr, int rokParametr)
+        public void SetDate(int dzienParametr, int miesiacParametr, int rokParametr)
         {
-            dzien = dzienParametr;
-            miesiac = miesiacParametr;
-            rok = rokParametr;
-
-            SprawdzPoprawnoscDaty();
-
+            day = dzienParametr;
+            month = miesiacParametr;
+            year = rokParametr;
+            ChechCorrectDate();
         }
-
         public override string ToString()
         {
 
-            if (enumDaty == FormatDaty.DDMMYYYY)
+            if (formatDate == FormatDaty.DDMMYYYY)
             {
                 return ToStringDDMMRR();
             }
 
-            if (enumDaty == FormatDaty.MMDDYYYY)
+            if (formatDate == FormatDaty.MMDDYYYY)
             {
                 return ToStringMMDDRRRR();
             }
-            //if (enumDaty == FormatDaty.YYYYMMDD)
-            //{
-            //    return ToStringRRMMDD();
-            //}
+
             string data = ToStringRRMMDD();
             return data;
         }
 
-        public void SprawdzPoprawnoscDaty()
+        public void ChechCorrectDate()
         {
-            if (dzien < 1)
+            if (day < 1)
             {
-                throw new Exception(komunikat);
+                throw new Exception(statement);
             }
 
-            else if (miesiac < 1 || miesiac > 12)
+            else if (month < 1 || month > 12)
             {
-                throw new Exception(komunikat);
+                throw new Exception(statement);
             }
 
-            else if (dzien > 31)
+            else if (day > 31)
             {
-                throw new Exception(komunikat);
+                throw new Exception(statement);
             }
-            else if ((miesiac == 2 && rok % 4 == 0) && dzien > 29)
+            else if ((month == 2 && year % 4 == 0) && day > 29)
             {
-                throw new Exception(komunikat);
+                throw new Exception(statement);
             }
-            else if ((miesiac == 2 && rok % 4 != 0) && dzien > 28)
+            else if ((month == 2 && year % 4 != 0) && day > 28)
             {
-                throw new Exception(komunikat);
+                throw new Exception(statement);
             }
-            else if ((miesiac == 11 || miesiac == 9 || miesiac == 6 || miesiac == 4) && dzien > 30)
+            else if ((month == 11 || month == 9 || month == 6 || month == 4) && day > 30)
             {
-                throw new Exception(komunikat);
+                throw new Exception(statement);
             }
         }
-    }//TODO: validacje na dzien i miesiac 
+    }
 
 }

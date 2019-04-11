@@ -17,13 +17,7 @@ namespace Training
             int jakastamliczba = 7;
 
             Data data = new Data(29, 2, 2020);
-
-
-           // data.UstawDate();
-
-           // throw new Exception( "niepoprawna data");
-
-            //
+            
             Console.WriteLine(data);
             Console.WriteLine(jakastamliczba);
 
