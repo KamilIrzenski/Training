@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -265,36 +266,57 @@ namespace Training
 
         public override bool Equals(object obj)
         {
-            Data data = obj as Data;
+            Data comparedData = obj as Data;
 
-            if (obj == null)
-            {
-                return false;
-            }
-
-            if (obj == data)
+            if ( comparedData.day == day && comparedData.month == month && comparedData.year == year)
             {
                 return true;
             }
 
-            return Equals(obj);
+            return false;
 
         }
 
 
         public static bool operator ==(Data obj, Data obj2)
-        {
-            if ((object)obj == null || (object)obj2 == null)
-            {
-                return false;
-            }
-
-            if ((object)obj == (object)obj2)
-            {
-                return true;
-            }
-
+        {            
             return obj.Equals(obj2);
+        }
+
+        public static bool operator > (Data obj, Data obj2 )
+        {
+            // if (obj.year > obj2.year|| obj.month > obj2.month||obj.day>obj2.day)
+            // {
+            //     return true;
+            // }
+
+            if (obj.year >= obj2.year)
+           {
+               return true;
+           }
+
+           if (obj.month >= obj2.month)
+           {
+               return true;
+           }
+
+           if (obj.day >= obj2.day)
+           {
+               return true;
+           }
+            
+            return false;
+        }
+
+        public static bool operator <(Data obj, Data obj2)
+        {
+
+            //if (obj > obj2)
+            //{
+            //    return true;
+            //}
+
+            return false;
         }
 
         public static bool operator !=(Data obj, Data obj2)

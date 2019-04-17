@@ -51,18 +51,44 @@ namespace Tests
             Assert.IsFalse(saRowne);
         }
 
-        // [TestMethod]
-        // public void powinienZwrocicZeDataLotuCzlowiekaWKosmosJestWiekszaOdDatyWystrzeleniaPierwszegoSatelity()
-        // {
-        //     Data dataPierwszegoLotuSatelityWKosmos = new Data(4, 10, 1957);
-        //     Data dataPierwszegoLotuCzlowiekaWKosmos = new Data(12, 4, 1961);
-        // 
-        //     bool dataLotuCzlowiekaJestWieksza = false;
-        //     dataLotuCzlowiekaJestWieksza = dataPierwszegoLotuCzlowiekaWKosmos > dataPierwszegoLotuSatelityWKosmos;
-        // 
-        //     Assert.IsTrue(dataLotuCzlowiekaJestWieksza);
-        // }
-        // 
+        [TestMethod]
+        public void powinienZwrocicZeDataLotuCzlowiekaWKosmosJestWiekszaOdDatyWystrzeleniaPierwszegoSatelity()
+        {
+            Data dataPierwszegoLotuSatelityWKosmos = new Data(4, 10, 1957);
+            Data dataPierwszegoLotuCzlowiekaWKosmos = new Data(12, 4, 1961);
+        
+            bool dataLotuCzlowiekaJestWieksza = false;
+            dataLotuCzlowiekaJestWieksza = dataPierwszegoLotuCzlowiekaWKosmos > dataPierwszegoLotuSatelityWKosmos;
+        
+            Assert.IsTrue(dataLotuCzlowiekaJestWieksza);
+        }
+
+
+        [TestMethod]
+        public void powinienData()
+        {
+            Data data1 = new Data(4, 10, 1957);
+            Data data2 = new Data(12, 4, 2019);
+
+            bool data1Wieksza = false;
+            data1Wieksza = data1 > data2;
+
+            Assert.IsFalse(data1Wieksza);
+        }
+
+
+        [TestMethod]
+        public void powinienZwrocicZeDataLotuPierwszegoSatelityNieJestMniejszaOdPierwszegoLotuWKosmos()
+        {
+            Data dataPierwszegoLotuSatelityWKosmos = new Data(4, 10, 1957);
+            Data dataPierwszegoLotuCzlowiekaWKosmos = new Data(12, 4, 1961);
+
+            bool dataLotuCzlowiekaJestWieksza = false;
+            dataLotuCzlowiekaJestWieksza = dataPierwszegoLotuCzlowiekaWKosmos < dataPierwszegoLotuSatelityWKosmos;
+
+            Assert.IsFalse(dataLotuCzlowiekaJestWieksza);
+        }
+
         // [TestMethod]
         // public void powinienZwrocicRozniceWDniachPomiedzyDwiemaDatami()
         // {
