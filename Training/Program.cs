@@ -14,12 +14,12 @@ namespace Training
     {
         public static void Main(string[] args)
         {
-            int jakastamliczba = 7;
+            //int jakastamliczba = 7;
 
-            Data data = new Data(29, 2, 2020);
+            //Data data = new Data(29, 2, 2020);
             
-            Console.WriteLine(data);
-            Console.WriteLine(jakastamliczba);
+            //Console.WriteLine(data);
+            //Console.WriteLine(jakastamliczba);
 
             Console.WriteLine();
             Console.WriteLine();

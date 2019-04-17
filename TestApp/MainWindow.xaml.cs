@@ -31,52 +31,52 @@ namespace TestApp
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-         //   textBoxData.Text = data.ToStringDDMMRR();
+            textBoxData.Text = data.ToString();
         }
 
         private void BtnDzienPlus_Click(object sender, RoutedEventArgs e)
         {
             data.AddDay();
-           // textBoxData.Text = data.ToStringDDMMRR();
+            textBoxData.Text = data.ToString();
 
         }
 
         private void BtnDzienMinus_Click(object sender, RoutedEventArgs e)
         {
             data.SubtractDay();
-            //textBoxData.Text = data.ToStringDDMMRR();
+            textBoxData.Text = data.ToString();
         }
 
         private void BtnMiesiacPlus_Click(object sender, RoutedEventArgs e)
         {
             data.AddMonth();
-            //textBoxData.Text = data.ToStringDDMMRR();
+            textBoxData.Text = data.ToString();
         }
 
         private void BtnMiesiacMinus_Click(object sender, RoutedEventArgs e)
         {
             data.SubtractMonth();
-            //textBoxData.Text = data.ToStringDDMMRR();
+            textBoxData.Text = data.ToString();
         }
 
         private void BtnRokPlus_Click(object sender, RoutedEventArgs e)
         {
             data.AddYear();
-           // textBoxData.Text = data.ToStringDDMMRR();
+            textBoxData.Text = data.ToString();
         }
 
         private void BtnRokMinus_Click(object sender, RoutedEventArgs e)
         {
             data.SubtractYear();
-           // textBoxData.Text = data.ToStringDDMMRR();
+            textBoxData.Text = data.ToString();
         }
 
 
         private void BtnWyswietlNaTextBox_Click(object sender, RoutedEventArgs e)
         {
-            //data.UstawDate(Convert.ToInt32(dzienTextBox.Text),
-            //    miesiacParametr: Convert.ToInt32(miesiacTextBox.Text), rokParametr: Convert.ToInt32(rokTextBox.Text));
-            //textBoxData.Text = data.ToStringDDMMRR();
+            data.SetDate(Convert.ToInt32(dzienTextBox.Text),
+                miesiacParametr: Convert.ToInt32(miesiacTextBox.Text), rokParametr: Convert.ToInt32(rokTextBox.Text));
+            textBoxData.Text = data.ToString();
         }
     }
 }

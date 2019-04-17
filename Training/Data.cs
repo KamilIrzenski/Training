@@ -49,8 +49,10 @@ namespace Training
         public void AddDay()
         {
             day++;
-            if ((month == 10 || month == 8 || month == 7 || month == 5 || month == 3 ||
-                month == 1) && day == 31 || (month == 11 || month == 9 || month == 6 || month == 4) && day == 30 || (month == 2 && year % 4 == 0) && day == 29 || month == 2 && day == 28)
+            if ((month == 10 || month == 8 || month == 7 || month == 5 || month == 3 || month == 1) && day == 31
+                || (month == 11 || month == 9 || month == 6 || month == 4) && day == 30 
+                || (month == 2 && year % 4 == 0) && day == 29 
+                || month == 2 && day == 28)
             {
                 AddMonth();
                 day = 1;
@@ -154,13 +156,14 @@ namespace Training
         public void SubtractMonth()
         {
             month--;
+
             if (month < 1)
             {
                 SubtractYear();
                 month = 12;
             }
 
-            if (month == 11 || month == 9 || month == 6 || month == 4)
+           else if ((month == 11 || month == 9 || month == 6 || month == 4) && day == 31)
             {
                 day = 30;
             }
@@ -262,8 +265,8 @@ namespace Training
 
         public override bool Equals(object obj)
         {
-           Data data = obj as Data;
-            
+            Data data = obj as Data;
+
             if (obj == null)
             {
                 return false;
@@ -276,6 +279,27 @@ namespace Training
 
             return Equals(obj);
 
+        }
+
+
+        public static bool operator ==(Data obj, Data obj2)
+        {
+            if ((object)obj == null || (object)obj2 == null)
+            {
+                return false;
+            }
+
+            if ((object)obj == (object)obj2)
+            {
+                return true;
+            }
+
+            return obj.Equals(obj2);
+        }
+
+        public static bool operator !=(Data obj, Data obj2)
+        {
+            return !(obj == obj2);
         }
 
         public void ChechCorrectDate()

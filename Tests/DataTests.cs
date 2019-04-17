@@ -151,6 +151,14 @@ namespace Tests
         }
 
         [TestMethod]
+        public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiDate25042000()
+        {
+            Data data = new Data(25, 05, 2000);
+            data.SubtractMonth();
+            Assert.AreEqual("25042000", data.ToString());
+        }
+
+        [TestMethod]
         public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate20190531()
         {
             Data data = new Data(31, 5, 2019, FormatDaty.YYYYMMDD);
@@ -165,6 +173,13 @@ namespace Tests
             data.SubtractMonth();
             Assert.AreEqual("20191030", data.ToString());
         }
+        [TestMethod]
+        public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate31032000()
+        {
+            Data data = new Data(30, 03, 2000);
+            data.AddDay();
+            Assert.AreEqual("20000331", data.ToString());
+        }
 
         [TestMethod]
         public void powinienWyswietlicDateWFormacieRRRRMMDD_1()
@@ -172,6 +187,7 @@ namespace Tests
             Data data = new Data(1, 1, 2019, FormatDaty.YYYYMMDD);
             Assert.AreEqual("20190101", data.ToString());
         }
+        
 
         [TestMethod]
         public void powinienWyswietlicDateWFormacieRRRRMMDD_2()
