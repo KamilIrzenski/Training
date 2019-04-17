@@ -51,8 +51,8 @@ namespace Training
         {
             day++;
             if ((month == 10 || month == 8 || month == 7 || month == 5 || month == 3 || month == 1) && day == 31
-                || (month == 11 || month == 9 || month == 6 || month == 4) && day == 30 
-                || (month == 2 && year % 4 == 0) && day == 29 
+                || (month == 11 || month == 9 || month == 6 || month == 4) && day == 30
+                || (month == 2 && year % 4 == 0) && day == 29
                 || month == 2 && day == 28)
             {
                 AddMonth();
@@ -164,7 +164,7 @@ namespace Training
                 month = 12;
             }
 
-           else if ((month == 11 || month == 9 || month == 6 || month == 4) && day == 31)
+            else if ((month == 11 || month == 9 || month == 6 || month == 4) && day == 31)
             {
                 day = 30;
             }
@@ -268,7 +268,7 @@ namespace Training
         {
             Data comparedData = obj as Data;
 
-            if ( comparedData.day == day && comparedData.month == month && comparedData.year == year)
+            if (comparedData.day == day && comparedData.month == month && comparedData.year == year)
             {
                 return true;
             }
@@ -279,32 +279,40 @@ namespace Training
 
 
         public static bool operator ==(Data obj, Data obj2)
-        {            
+        {
             return obj.Equals(obj2);
         }
 
-        public static bool operator > (Data obj, Data obj2 )
+        public static bool operator >(Data obj, Data obj2)
         {
-            // if (obj.year > obj2.year|| obj.month > obj2.month||obj.day>obj2.day)
-            // {
-            //     return true;
-            // }
+      
+            if (obj.year > obj2.year)
+            {
+                return true;
+            }
+            else if (obj.year < obj2.year)
+            {
+                return false;
+            }
+            if (obj.month > obj2.month)
+            {
+                return true;
 
-            if (obj.year >= obj2.year)
-           {
-               return true;
-           }
+            }
+           else if (obj.month < obj2.month)
+            {
+                return false;
+            }
 
-           if (obj.month >= obj2.month)
-           {
-               return true;
-           }
+            if (obj.day > obj2.day)
+            {
+                return true;
+            }
+            else if (obj.day < obj2.day)
+            {
+                return false;
+            }
 
-           if (obj.day >= obj2.day)
-           {
-               return true;
-           }
-            
             return false;
         }
 
