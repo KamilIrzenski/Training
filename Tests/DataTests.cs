@@ -174,11 +174,11 @@ namespace Tests
             Assert.AreEqual("20191030", data.ToString());
         }
         [TestMethod]
-        public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate31032000()
+        public void ObiektDatyUtworzonyKonstruktoremZParametramiUstawiaDate31032011()
         {
-            Data data = new Data(30, 03, 2000);
+            Data data = new Data(30, 3, 2011, FormatDaty.YYYYMMDD);
             data.AddDay();
-            Assert.AreEqual("20000331", data.ToString());
+            Assert.AreEqual("20110331", data.ToString());
         }
 
         [TestMethod]

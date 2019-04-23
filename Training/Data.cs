@@ -50,10 +50,28 @@ namespace Training
         public void AddDay()
         {
             day++;
-            if ((month == 10 || month == 8 || month == 7 || month == 5 || month == 3 || month == 1) && day == 31
-                || (month == 11 || month == 9 || month == 6 || month == 4) && day == 30
-                || (month == 2 && year % 4 == 0) && day == 29
-                || month == 2 && day == 28)
+
+            if ((month == 11 || month == 9 || month == 6 || month == 4) && day > 30)
+            {
+                AddMonth();
+                day = 1;
+            }
+            if ((month == 10 || month == 8 || month == 7 || month == 5 || month == 3 || month == 1) && day > 31)
+            {
+                AddMonth();
+                day = 1;
+            }
+
+            if (month == 2 && year %4 == 0 )//&& day > 29)
+            {
+                if (day > 29)
+                {
+                    AddMonth();
+                    day = 1;
+                }
+               
+            }
+            else if (month == 2 && day >28 )
             {
                 AddMonth();
                 day = 1;
@@ -285,7 +303,7 @@ namespace Training
 
         public static bool operator >(Data obj, Data obj2)
         {
-      
+
             if (obj.year > obj2.year)
             {
                 return true;
@@ -299,7 +317,7 @@ namespace Training
                 return true;
 
             }
-           else if (obj.month < obj2.month)
+            else if (obj.month < obj2.month)
             {
                 return false;
             }
@@ -319,13 +337,99 @@ namespace Training
         public static bool operator <(Data obj, Data obj2)
         {
 
-            //if (obj > obj2)
-            //{
-            //    return true;
-            //}
+            if (obj.year < obj2.year)
+            {
+                return true;
+            }
+            else if (obj.year > obj2.year)
+            {
+                return false;
+            }
+            if (obj.month < obj2.month)
+            {
+                return true;
+
+            }
+            else if (obj.month > obj2.month)
+            {
+                return false;
+            }
+
+            if (obj.day < obj2.day)
+            {
+                return true;
+            }
+            else if (obj.day > obj2.day)
+            {
+                return false;
+            }
 
             return false;
         }
+
+        public static bool operator <=(Data obj, Data obj2)
+        {
+            if (obj.year < obj2.year)
+            {
+                return true;
+            }
+            else if (obj.year > obj2.year)
+            {
+                return false;
+            }
+            if (obj.month < obj2.month)
+            {
+                return true;
+
+            }
+            else if (obj.month > obj2.month)
+            {
+                return false;
+            }
+
+            if (obj.day <= obj2.day)
+            {
+                return true;
+            }
+            else if (obj.day > obj2.day)
+            {
+                return false;
+            }
+            return false;
+        }
+
+        public static bool operator >=(Data obj, Data obj2)
+        {
+            if (obj.year > obj2.year)
+            {
+                return true;
+            }
+            else if (obj.year < obj2.year)
+            {
+                return false;
+            }
+            if (obj.month > obj2.month)
+            {
+                return true;
+
+            }
+            else if (obj.month < obj2.month)
+            {
+                return false;
+            }
+
+            if (obj.day >= obj2.day)
+            {
+                return true;
+            }
+            else if (obj.day < obj2.day)
+            {
+                return false;
+            }
+
+            return false;
+        }
+
 
         public static bool operator !=(Data obj, Data obj2)
         {
